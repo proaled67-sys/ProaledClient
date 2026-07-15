@@ -2787,9 +2787,9 @@ if(CLIENT)
     components/proaledclient/3d_particles.cpp
     components/proaledclient/3d_particles.h
     components/proaledclient/admin_panel.cpp
-    components/proaledclient/admin_panel.h
-    components/proaledclient/proaledclient.cpp
-    components/proaledclient/proaledclient.h
+    components/proaledclient/proaled.h
+    components/proaledclient/bestclient.cpp
+    components/proaledclient/bestclient.h
     components/proaledclient/clientindicator/browser_cache.cpp
     components/proaledclient/clientindicator/browser_cache.h
     components/proaledclient/clientindicator/client_indicator.cpp
@@ -2805,7 +2805,7 @@ if(CLIENT)
     components/proaledclient/fast_practice.h
     components/proaledclient/hud_editor.cpp
     components/proaledclient/hud_editor.h
-    components/proaledclient/menus_proaledclient.cpp
+    components/proaledclient/menus_bestclient.cpp
     components/proaledclient/music_player.cpp
     components/proaledclient/music_player.h
     components/proaledclient/r_jelly.cpp
@@ -2844,6 +2844,8 @@ if(CLIENT)
     components/proaledclient/voice/server.cpp
     components/proaledclient/voice/voice.cpp
     components/proaledclient/voice/voice.h
+    components/proaledclient/voice.cpp
+    components/proaledclient/voice.h
     components/binds.cpp
     components/binds.h
     components/broadcast.cpp
