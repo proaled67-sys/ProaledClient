@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a001a"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+    <radialGradient id="pinkGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF69B4" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#FF69B4" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="url(#bg)"/>
+  <!-- Glow halo -->
+  <circle cx="256" cy="256" r="200" fill="url(#pinkGlow)"/>
+  <!-- Crescent moon: two circles subtracted -->
+  <!-- Main moon circle (pink) -->
+  <circle cx="256" cy="256" r="160" fill="#FF69B4" filter="url(#glow)"/>
+  <!-- Shadow circle (black, offset) creates crescent -->
+  <circle cx="316" cy="226" r="130" fill="#0d000d"/>
+  <!-- Pink star accents -->
+  <circle cx="370" cy="130" r="6" fill="#FF69B4" filter="url(#softglow)" opacity="0.9"/>
+  <circle cx="400" cy="200" r="4" fill="#FF69B4" filter="url(#softglow)" opacity="0.7"/>
+  <circle cx="340" cy="100" r="3" fill="#FF1493" filter="url(#softglow)" opacity="0.8"/>
+  <circle cx="420" cy="160" r="5" fill="#FF69B4" filter="url(#softglow)" opacity="0.6"/>
+  <circle cx="150" cy="380" r="3" fill="#FF69B4" filter="url(#softglow)" opacity="0.5"/>
+  <circle cx="100" cy="320" r="4" fill="#FF1493" filter="url(#softglow)" opacity="0.6"/>
+  <circle cx="390" cy="350" r="3" fill="#FF69B4" filter="url(#softglow)" opacity="0.5"/>
+  <!-- Text: ProaledClient -->
+  <text x="256" y="460" font-family="Arial Black, sans-serif" font-size="36" font-weight="900" fill="#FF69B4" text-anchor="middle" filter="url(#softglow)">ProaledClient</text>
+</svg>
