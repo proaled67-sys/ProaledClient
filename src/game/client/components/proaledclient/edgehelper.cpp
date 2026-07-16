@@ -234,9 +234,9 @@ void CEdgeHelper::RenderEdgeHelperJumpInfo(CUIRect *pBase)
 	if(m_Pos_x == 62 || m_Pos_x == 63 || m_Pos_x == 66 || m_Pos_x == 81)
 	{
 		RightZone.HSplitTop(5, nullptr, &RightZone);
-		DoIconButton(&RightZone, FontIcon::RC_ANGLE_UP, SEdgeHelperProperties::ms_ArrowsSize, SEdgeHelperProperties::ActionWhiteButtonColor());
+		DoIconButton(&RightZone, FontIcon::ANGLE_UP, SEdgeHelperProperties::ms_ArrowsSize, SEdgeHelperProperties::ActionWhiteButtonColor());
 	}
-	DoIconButton(&LeftZone, FontIcon::RC_ANGLES_UP, SEdgeHelperProperties::ms_ArrowsSize, (m_Pos_x == 13 || m_Pos_x == 25 || m_Pos_x == 28 || m_Pos_x == 41) ? SEdgeHelperProperties::ActionWhiteButtonColor() : SEdgeHelperProperties::WindowColorMedium());
+	DoIconButton(&LeftZone, FontIcon::ANGLES_UP, SEdgeHelperProperties::ms_ArrowsSize, (m_Pos_x == 13 || m_Pos_x == 25 || m_Pos_x == 28 || m_Pos_x == 41) ? SEdgeHelperProperties::ActionWhiteButtonColor() : SEdgeHelperProperties::WindowColorMedium());
 	if(m_Pos_x == 16 || m_Pos_x == 31)
 	{
 		LeftZone.HSplitTop(5, nullptr, &LeftZone);
