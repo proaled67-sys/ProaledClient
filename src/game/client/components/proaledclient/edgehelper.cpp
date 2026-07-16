@@ -230,14 +230,18 @@ void CEdgeHelper::RenderEdgeHelperJumpInfo(CUIRect *pBase)
 	RightZone.VSplitLeft(ActionSpacing, nullptr, &RightZone);
 	LeftZone.Margin(SEdgeHelperProperties::ms_ItemSpacing, &LeftZone);
 	RightZone.Margin(SEdgeHelperProperties::ms_ItemSpacing, &RightZone);
-	DoIconButton(&RightZone, FontIcon::ANGLES_UP, SEdgeHelperProperties::ms_ArrowsSize, (m_Pos_x == 56 || m_Pos_x == 69 || m_Pos_x == 72 || m_Pos_x == 84) ? SEdgeHelperProperties::ActionWhiteButtonColor() : SEdgeHelperProperties::WindowColorMedium());
-	if(m_Pos_x == 62 || m_Pos_x == 63 || m_Pos_x == 66 || m_Pos_x == 81)
-	{
-		RightZone.HSplitTop(5, nullptr, &RightZone);
-		DoIconButton(&RightZone, FontIcon::ANGLE_UP, SEdgeHelperProperties::ms_ArrowsSize, SEdgeHelperProperties::ActionWhiteButtonColor());
-	}
-	DoIconButton(&LeftZone, FontIcon::ANGLES_UP, SEdgeHelperProperties::ms_ArrowsSize, (m_Pos_x == 13 || m_Pos_x == 25 || m_Pos_x == 28 || m_Pos_x == 41) ? SEdgeHelperProperties::ActionWhiteButtonColor() : SEdgeHelperProperties::WindowColorMedium());
-	if(m_Pos_x == 16 || m_Pos_x == 31)
+	DoIconButton(&RightZone, FontIcon::ARROWS_UP_DOWN, SEdgeHelperProperties::ms_ArrowsSize, (m_Pos_x == 56 || m_Pos_x == 69 || m_Pos_x == 72 || m_Pos_x == 84) ? SEdgeHelperProperties::ActionWhiteButtonColor() : SEdgeHelperProperties::WindowColorMedium());
+if(m_Pos_x == 62 || m_Pos_x == 63 || m_Pos_x == 66 || m_Pos_x == 81)
+{
+    RightZone.HSplitTop(5, nullptr, &RightZone);
+    DoIconButton(&RightZone, FontIcon::ANGLE_UP, SEdgeHelperProperties::ms_ArrowsSize, SEdgeHelperProperties::ActionWhiteButtonColor());
+}
+DoIconButton(&LeftZone, FontIcon::ARROWS_UP_DOWN, SEdgeHelperProperties::ms_ArrowsSize, (m_Pos_x == 13 || m_Pos_x == 25 || m_Pos_x == 28 || m_Pos_x == 41) ? SEdgeHelperProperties::ActionWhiteButtonColor() : SEdgeHelperProperties::WindowColorMedium());
+if(m_Pos_x == 16 || m_Pos_x == 31)
+{
+    LeftZone.HSplitTop(5, nullptr, &LeftZone);
+    DoIconButton(&LeftZone, FontIcon::ANGLE_UP, SEdgeHelperProperties::ms_ArrowsSize, SEdgeHelperProperties::ActionWhiteButtonColor());
+}
 	{
 		LeftZone.HSplitTop(5, nullptr, &LeftZone);
 		DoIconButton(&LeftZone, FontIcon::RC_ANGLE_UP, SEdgeHelperProperties::ms_ArrowsSize, SEdgeHelperProperties::ActionWhiteButtonColor());
