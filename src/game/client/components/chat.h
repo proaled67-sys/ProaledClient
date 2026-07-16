@@ -1,9 +1,5 @@
 /* (c) Magnus Auvinen. See licence.txt in the root of the distribution for more information. */
 /* If you are missing that file, acquire a complete release at teeworlds.com.                */
-/* (c) Magnus Auvinen. See licence.txt in the root of the distribution for more information. */
-/* If you are missing that file, acquire a complete release at teeworlds.com.                */
-/* (c) Magnus Auvinen. See licence.txt in the root of the distribution for more information. */
-/* If you are missing that file, acquire a complete release at teeworlds.com.                */
 #ifndef GAME_CLIENT_COMPONENTS_CHAT_H
 #define GAME_CLIENT_COMPONENTS_CHAT_H
 #include <base/str.h>
@@ -317,7 +313,7 @@ class CChat : public CComponent
 	std::string BuildPlainTextLine(const CLine &Line) const;
 	bool ShouldHideLineFromStreamer(const CLine &Line) const;
 	bool ShouldShowFriendMarker(const CLine &Line) const;
-	void RenderTextLine(CLine &Line, float y, float fontSize, float lineWidth, float textBegin, float realMsgPaddingTee, float realMsgPaddingY, bool isScoreBoardOpen, float blend, std::string *pSele[...]
+	void RenderTextLine(CLine &Line, float y, float fontSize, float lineWidth, float textBegin, float realMsgPaddingTee, float realMsgPaddingY, bool isScoreBoardOpen, float blend, std::string *pSelected);
 	void OpenTranslateSettingsPopup(const CUIRect &ButtonRect);
 	void RenderTranslateSettingsButton(const CUIRect &ButtonRect);
 	static CUi::EPopupMenuFunctionResult PopupTranslateSettings(void *pContext, CUIRect View, bool Active);
