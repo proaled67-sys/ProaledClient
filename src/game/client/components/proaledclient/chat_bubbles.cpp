@@ -18,7 +18,7 @@ CChat *CChatBubbles::Chat() const
 
 float CChatBubbles::GetOffset(int ClientId)
 {
-	float Offset = GameClient()->m_NamePlates.GetNamePlateOffset(ClientId) + NameplateOffset;
+	float Offset = NameplateOffset;
 	if(Offset < CharacterMinOffset)
 		Offset = CharacterMinOffset;
 
