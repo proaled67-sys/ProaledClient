@@ -37,13 +37,7 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake -B build -A x64 `
-            -DCMAKE_BUILD_TYPE=Release `
-            -DCLIENT_EXECUTABLE=ProaledClient `
-            -DVULKAN=OFF `
-            -DEXCEPTION_HANDLING=ON `
-            -DAUTOUPDATE=OFF
-            -Wno-dev
+                  cmake -B build -A x64 -DCMAKE_BUILD_TYPE=Release -DCLIENT_EXECUTABLE=ProaledClient -DVULKAN=OFF -DEXCEPTION_HANDLING=ON -DAUTOUPDATE=OFF -Wno-dev
       - name: Build
         run: cmake --build build --config Release --parallel
 
