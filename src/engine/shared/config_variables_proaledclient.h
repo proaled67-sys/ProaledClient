@@ -340,5 +340,4 @@ MACRO_CONFIG_INT(PcEdgeInfoPosY, pc_edge_info_pos_y, 50, 0, 100, CFGFLAG_CLIENT 
 MACRO_CONFIG_COL(PcEdgeInfoColorFreeze, pc_edge_info_color_freeze, 65408, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Edge info freeze color")
 MACRO_CONFIG_COL(PcEdgeInfoColorSafe, pc_edge_info_color_safe, 16711935, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Edge info safe color")
 MACRO_CONFIG_COL(PcEdgeInfoColorKill, pc_edge_info_color_kill, 16711680, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Edge info kill color")
-MACRO_CONFIG_COL(PcEdgeInfoColorKill, pc_edge_info_color_kill, 16711680, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Edge info kill color")
 MACRO_CONFIG_COL(PcEdgeInfoColorDanger, pc_edge_info_color_danger, 16711680, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Edge info danger color")
