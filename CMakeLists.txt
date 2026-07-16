@@ -1168,68 +1168,68 @@ endif()
 ########################################################################
 
 set(EXPECTED_DATA
-  ProaledClient/bc_dev_icon.png
-  ProaledClient/bc_icon.png
-  ProaledClient/builtinscripts/sayemoticon.chai
-  ProaledClient/combo/combo1.wv
-  ProaledClient/combo/combo2.wv
-  ProaledClient/combo/combo3.wv
-  ProaledClient/combo/combo4.wv
-  ProaledClient/combo/combo5.wv
-  ProaledClient/combo/combo6.wv
-  ProaledClient/combo/combo7.wv
-  ProaledClient/fonts/Cabin-Regular.ttf
-  ProaledClient/fonts/FreeSansBold.ttf
-  ProaledClient/fonts/GoogleSans-Regular.ttf
-  ProaledClient/fonts/Inter_24pt-Regular.ttf
-  ProaledClient/fonts/Inter_24pt-SemiBold.ttf
-  ProaledClient/fonts/Montserrat-Regular.ttf
-  ProaledClient/fonts/Nunito-Black.ttf
-  ProaledClient/fonts/Rubik-Regular.ttf
-  ProaledClient/fonts/minecraft_font.ttf
-  ProaledClient/gui_logo.png
-  ProaledClient/keystrokes/mouse.png
-  ProaledClient/keystrokes/wasd.png
-  ProaledClient/languages/arabic.txt
-  ProaledClient/languages/azerbaijani.txt
-  ProaledClient/languages/belarusian.txt
-  ProaledClient/languages/bosnian.txt
-  ProaledClient/languages/brazilian_portuguese.txt
-  ProaledClient/languages/bulgarian.txt
-  ProaledClient/languages/catalan.txt
-  ProaledClient/languages/chuvash.txt
-  ProaledClient/languages/czech.txt
-  ProaledClient/languages/danish.txt
-  ProaledClient/languages/dutch.txt
-  ProaledClient/languages/esperanto.txt
-  ProaledClient/languages/estonian.txt
-  ProaledClient/languages/finnish.txt
-  ProaledClient/languages/french.txt
-  ProaledClient/languages/galician.txt
-  ProaledClient/languages/german.txt
-  ProaledClient/languages/greek.txt
-  ProaledClient/languages/hungarian.txt
-  ProaledClient/languages/index.txt
-  ProaledClient/languages/italian.txt
-  ProaledClient/languages/japanese.txt
-  ProaledClient/languages/korean.txt
-  ProaledClient/languages/kyrgyz.txt
-  ProaledClient/languages/license.txt
-  ProaledClient/languages/norwegian.txt
-  ProaledClient/languages/persian.txt
-  ProaledClient/languages/polish.txt
-  ProaledClient/languages/portuguese.txt
-  ProaledClient/languages/romanian.txt
-  ProaledClient/languages/russian.txt
-  ProaledClient/languages/serbian.txt
-  ProaledClient/languages/serbian_cyrillic.txt
-  ProaledClient/languages/simplified_chinese.txt
-  ProaledClient/languages/slovak.txt
-  ProaledClient/languages/spanish.txt
-  ProaledClient/languages/swedish.txt
-  ProaledClient/languages/traditional_chinese.txt
-  ProaledClient/languages/turkish.txt
-  ProaledClient/languages/ukrainian.txt
+  BestClient/bc_dev_icon.png
+  BestClient/bc_icon.png
+  BestClient/builtinscripts/sayemoticon.chai
+  BestClient/combo/combo1.wv
+  BestClient/combo/combo2.wv
+  BestClient/combo/combo3.wv
+  BestClient/combo/combo4.wv
+  BestClient/combo/combo5.wv
+  BestClient/combo/combo6.wv
+  BestClient/combo/combo7.wv
+  BestClient/fonts/Cabin-Regular.ttf
+  BestClient/fonts/FreeSansBold.ttf
+  BestClient/fonts/GoogleSans-Regular.ttf
+  BestClient/fonts/Inter_24pt-Regular.ttf
+  BestClient/fonts/Inter_24pt-SemiBold.ttf
+  BestClient/fonts/Montserrat-Regular.ttf
+  BestClient/fonts/Nunito-Black.ttf
+  BestClient/fonts/Rubik-Regular.ttf
+  BestClient/fonts/minecraft_font.ttf
+  BestClient/gui_logo.png
+  BestClient/keystrokes/mouse.png
+  BestClient/keystrokes/wasd.png
+  BestClient/languages/arabic.txt
+  BestClient/languages/azerbaijani.txt
+  BestClient/languages/belarusian.txt
+  BestClient/languages/bosnian.txt
+  BestClient/languages/brazilian_portuguese.txt
+  BestClient/languages/bulgarian.txt
+  BestClient/languages/catalan.txt
+  BestClient/languages/chuvash.txt
+  BestClient/languages/czech.txt
+  BestClient/languages/danish.txt
+  BestClient/languages/dutch.txt
+  BestClient/languages/esperanto.txt
+  BestClient/languages/estonian.txt
+  BestClient/languages/finnish.txt
+  BestClient/languages/french.txt
+  BestClient/languages/galician.txt
+  BestClient/languages/german.txt
+  BestClient/languages/greek.txt
+  BestClient/languages/hungarian.txt
+  BestClient/languages/index.txt
+  BestClient/languages/italian.txt
+  BestClient/languages/japanese.txt
+  BestClient/languages/korean.txt
+  BestClient/languages/kyrgyz.txt
+  BestClient/languages/license.txt
+  BestClient/languages/norwegian.txt
+  BestClient/languages/persian.txt
+  BestClient/languages/polish.txt
+  BestClient/languages/portuguese.txt
+  BestClient/languages/romanian.txt
+  BestClient/languages/russian.txt
+  BestClient/languages/serbian.txt
+  BestClient/languages/serbian_cyrillic.txt
+  BestClient/languages/simplified_chinese.txt
+  BestClient/languages/slovak.txt
+  BestClient/languages/spanish.txt
+  BestClient/languages/swedish.txt
+  BestClient/languages/traditional_chinese.txt
+  BestClient/languages/turkish.txt
+  BestClient/languages/ukrainian.txt
   announcement.txt
   arrow.png
   assets/entities/comfort/ddnet.png
@@ -2788,8 +2788,8 @@ if(CLIENT)
     components/proaledclient/3d_particles.h
     components/proaledclient/admin_panel.cpp
     components/proaledclient/admin_panel.h
-    components/proaledclient/proaledclient.cpp
-    components/proaledclient/proaledclient.h
+    components/proaledclient/bestclient.cpp
+    components/proaledclient/bestclient.h
     components/proaledclient/clientindicator/browser_cache.cpp
     components/proaledclient/clientindicator/browser_cache.h
     components/proaledclient/clientindicator/client_indicator.cpp
@@ -2805,7 +2805,9 @@ if(CLIENT)
     components/proaledclient/fast_practice.h
     components/proaledclient/hud_editor.cpp
     components/proaledclient/hud_editor.h
-    components/proaledclient/menus_proaledclient.cpp
+    components/proaledclient/menus_bestclient.cpp
+    components/proaledclient/voice.cpp
+    components/proaledclient/voice.h
     components/proaledclient/music_player.cpp
     components/proaledclient/music_player.h
     components/proaledclient/r_jelly.cpp
