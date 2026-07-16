@@ -20,7 +20,7 @@
 #include <generated/protocol.h>
 
 #include <game/client/animstate.h>
-#include <game/client/pc_ui_animations.h>
+#include <game/client/bc_ui_animations.h>
 #include <game/client/components/chat.h>
 #include <game/client/components/media_decoder.h>
 #include <game/client/components/menu_background.h>

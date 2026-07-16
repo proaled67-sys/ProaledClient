@@ -30,30 +30,38 @@ jobs:
             ddnet-libs-${{ runner.os }}-
 
       - name: Download ddnet-libs
+        shell: powershell
         run: |
-          if (-not (Test-Path ddnet-libs)) {
+          if (-not (Test-Path "ddnet-libs")) {
             git clone https://github.com/ddnet/ddnet-libs.git --depth 1
           }
 
       - name: Configure CMake
-        run: |
-                  cmake -B build -A x64 -DCMAKE_BUILD_TYPE=Release -DCLIENT_EXECUTABLE=ProaledClient -DVULKAN=OFF -DEXCEPTION_HANDLING=ON -DAUTOUPDATE=OFF -Wno-dev
+        shell: powershell
+        run: cmake -B build -A x64 -DCMAKE_BUILD_TYPE=Release -DDDNET_LIBS_PATH="${{ github.workspace }}/ddnet-libs" -DCLIENT_EXECUTABLE=ProaledClient -DVULKAN=OFF -DEXCEPTION_HANDLING=ON -DAUTOUPDATE=OFF -Wno-dev
+
       - name: Build
+        shell: powershell
         run: cmake --build build --config Release --parallel
 
       - name: Collect artifacts
+        shell: powershell
         run: |
-          mkdir ProaledClient-release
-          copy build\Release\ProaledClient.exe ProaledClient-release\
-          if (Test-Path build\Release\data) {
-            xcopy build\Release\data ProaledClient-release\data\ /E /I /Q
+          New-Item -ItemType Directory -Force -Path ProaledClient-release
+          Copy-Item "build\Release\ProaledClient.exe" "ProaledClient-release\"
+          if (Test-Path "data") {
+            Copy-Item -Recurse -Force "data" "ProaledClient-release\data"
           }
-          if (Test-Path moon_logo.png) {
-            copy moon_logo.png ProaledClient-release\
+          Get-ChildItem "build\Release\*.dll" | ForEach-Object {
+            Copy-Item $_.FullName "ProaledClient-release\"
+          }
+          if (Test-Path "moon_logo.png") {
+            Copy-Item "moon_logo.png" "ProaledClient-release\"
           }
 
       - name: Create release zip
-        run: Compress-Archive -Path ProaledClient-release\* -DestinationPath ProaledClient-win64.zip
+        shell: powershell
+        run: Compress-Archive -Path "ProaledClient-release\*" -DestinationPath "ProaledClient-win64.zip"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

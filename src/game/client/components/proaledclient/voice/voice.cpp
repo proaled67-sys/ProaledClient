@@ -21,7 +21,7 @@
 #include <engine/textrender.h>
 
 #include <game/client/animstate.h>
-#include <game/client/pc_ui_animations.h>
+#include <game/client/bc_ui_animations.h>
 #include <game/client/components/countryflags.h>
 #include <game/client/components/hud_layout.h>
 #include <game/client/gameclient.h>

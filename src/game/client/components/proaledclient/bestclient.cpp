@@ -1,5 +1,5 @@
 /* Copyright © 2026 Proaled */
-#include "proaledclient.h"
+#include "bestclient.h"
 
 #include "version.h"
 

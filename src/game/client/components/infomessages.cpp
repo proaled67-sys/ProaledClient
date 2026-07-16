@@ -14,7 +14,7 @@
 #include <generated/protocol.h>
 
 #include <game/client/animstate.h>
-#include <game/client/pc_ui_animations.h>
+#include <game/client/bc_ui_animations.h>
 #include <game/client/gameclient.h>
 #include <game/client/prediction/entities/character.h>
 #include <game/client/prediction/gameworld.h>

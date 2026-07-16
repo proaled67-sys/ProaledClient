@@ -28,7 +28,7 @@
 #include <game/client/components/sounds.h>
 #include <game/client/components/tclient/colored_parts.h>
 #include <game/client/gameclient.h>
-#include <game/client/pc_ui_animations.h>
+#include <game/client/bc_ui_animations.h>
 #include <game/localization.h>
 
 #include <algorithm>
