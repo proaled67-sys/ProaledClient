@@ -43,7 +43,7 @@ jobs:
             -DVULKAN=OFF `
             -DEXCEPTION_HANDLING=ON `
             -DAUTOUPDATE=OFF
-
+            -Wno-dev
       - name: Build
         run: cmake --build build --config Release --parallel
 
