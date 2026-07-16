@@ -36,13 +36,7 @@ void CChatBubbles::OnMessage(int MsgType, void *pRawMsg)
 	if(MsgType == NETMSGTYPE_SV_CHAT)
 	{
 		CNetMsg_Sv_Chat *pMsg = (CNetMsg_Sv_Chat *)pRawMsg;
-		if(g_Config.m_TcRegexChatIgnore[0] && g_Config.m_PcEnableCensorList)
-		{
-			const char *pMessage = GameClient()->m_Chat.FilterText(pMsg->m_pMessage);
-			AddBubble(pMsg->m_ClientId, pMsg->m_Team, pMessage);
-		}
-		else
-			AddBubble(pMsg->m_ClientId, pMsg->m_Team, pMsg->m_pMessage);
+		AddBubble(pMsg->m_ClientId, pMsg->m_Team, pMsg->m_pMessage);
 	}
 }
 
