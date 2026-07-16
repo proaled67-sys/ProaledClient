@@ -347,7 +347,6 @@ void CChatBubbles::OnRender()
 
 	float ScreenX0, ScreenY0, ScreenX1, ScreenY1;
 	Graphics()->GetScreen(&ScreenX0, &ScreenY0, &ScreenX1, &ScreenY1);
-	Graphics()->MapScreenToGroup(GameClient()->m_Camera.m_Center.x, GameClient()->m_Camera.m_Center.y, Layers()->GameGroup(), GameClient()->m_Camera.m_Zoom);
 
 	for(int ClientId = 0; ClientId < MAX_CLIENTS; ++ClientId)
 	{
