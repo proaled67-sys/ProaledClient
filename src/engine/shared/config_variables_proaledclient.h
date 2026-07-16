@@ -321,3 +321,13 @@ MACRO_CONFIG_INT(Bc3dParticlesGlowAlpha, pc_3d_particles_glow_alpha, 35, 1, 100,
 MACRO_CONFIG_INT(PcCasinoBalance, pc_casino_balance, 500, 0, 9999999, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Casino game balance in dollars")
 MACRO_CONFIG_INT(PcCasinoLastClaim, pc_casino_last_claim, 0, 0, 2147483647, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Unix timestamp of last casino free claim")
 MACRO_CONFIG_INT(Bc3dParticlesGlowOffset, pc_3d_particles_glow_offset, 2, 1, 20, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Glow offset for 3D particles")
+
+// Chat Bubbles
+MACRO_CONFIG_INT(PcChatBubbles, pc_chat_bubbles, 1, 0, 1, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Show chat bubbles above players")
+MACRO_CONFIG_INT(PcChatBubbleSize, pc_chat_bubble_size, 8, 4, 32, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Chat bubble font size")
+MACRO_CONFIG_INT(PcChatBubblesSelf, pc_chat_bubbles_self, 1, 0, 1, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Show chat bubble for own messages")
+MACRO_CONFIG_INT(PcChatBubblesDemo, pc_chat_bubbles_demo, 1, 0, 1, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Show chat bubbles during demo playback")
+MACRO_CONFIG_INT(PcChatBubbleShowTime, pc_chat_bubble_show_time, 600, 100, 3000, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Chat bubble show time in 1/100 seconds")
+MACRO_CONFIG_INT(PcChatBubbleFadeOut, pc_chat_bubble_fade_out, 100, 0, 1000, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Chat bubble fade out time in 1/100 seconds")
+MACRO_CONFIG_INT(PcChatBubbleFadeIn, pc_chat_bubble_fade_in, 50, 0, 500, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Chat bubble fade in time in 1/100 seconds")
+MACRO_CONFIG_INT(PcEnableCensorList, pc_enable_censor_list, 0, 0, 1, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Enable chat censor list filter")
