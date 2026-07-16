@@ -66,7 +66,7 @@ void CChatBubbles::UpdateBubbleOffsets(int ClientId, float inputBubbleHeight)
 			TextRender()->CreateOrAppendTextContainer(aBubble.m_TextContainerIndex, &Cursor, aBubble.m_aText);
 			aBubble.m_Cursor.m_FontSize = FontSize;
 
-			TextRender()->ColorParsing(aBubble.m_aText, &Cursor, ColorRGBA(1.0f, 1.0f, 1.0f), &aBubble.m_TextContainerIndex);
+			TextRender()->CreateOrAppendTextContainer(aBubble.m_TextContainerIndex, &Cursor, aBubble.m_aText);
 		}
 		STextBoundingBox BoundingBox = TextRender()->GetBoundingBoxTextContainer(aBubble.m_TextContainerIndex);
 		aBubble.m_TargetOffsetY = Offset;
@@ -125,7 +125,7 @@ void CChatBubbles::AddBubble(int ClientId, int Team, const char *pText)
 		Color = color_cast<ColorRGBA>(ColorHSLA(g_Config.m_ClMessageColor));
 
 	TextRender()->TextColor(Color);
-	TextRender()->ColorParsing(pText, &pCursor, Color, &bubble.m_TextContainerIndex);
+	TextRender()->CreateOrAppendTextContainer(bubble.m_TextContainerIndex, &pCursor, pText);
 
 	m_ChatBubbles[ClientId].insert(m_ChatBubbles[ClientId].begin(), bubble);
 
