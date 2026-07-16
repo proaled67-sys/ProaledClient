@@ -67,11 +67,12 @@ void CEdgeHelper::SetActive(bool Active)
 	m_Active = Active;
 	if(m_Active)
 	{
-		if(!g_Config.m_PcEdgeInfoJump && !g_Config.m_PcEdgeInfoCords)
-		{
-			GameClient()->Echo("Enable any edgeinfo function");
-			OnReset();
-		}
+		// Feature disabled - config variables not defined
+		// if(!g_Config.m_PcEdgeInfoJump && !g_Config.m_PcEdgeInfoCords)
+		// {
+		// 	GameClient()->Echo("Enable any edgeinfo function");
+		// 	OnReset();
+		// }
 	}
 	else
 	{
@@ -103,7 +104,9 @@ void CEdgeHelper::RenderEdgeHelper()
 {
 	CUIRect Base, EdgeInfo, JumpInfo;
 
-	Base.h = 100.0f * 3.0f / (g_Config.m_PcEdgeInfoJump && g_Config.m_PcEdgeInfoCords ? 6 : 12);
+	// Feature disabled - config variables not defined
+	// Base.h = 100.0f * 3.0f / (g_Config.m_PcEdgeInfoJump && g_Config.m_PcEdgeInfoCords ? 6 : 12);
+	Base.h = 100.0f * 3.0f / 12;
 	Base.w = 100.0f * 3.0f * Graphics()->ScreenAspect() / 5;
 	Base.x = (100.0f * 3.0f * Graphics()->ScreenAspect() / 2 - Base.w / 2) * (g_Config.m_PcEdgeInfoPosX / 50.0f);
 	Base.y = ((100.0f * 3.0f) / 2) * (g_Config.m_PcEdgeInfoPosY / 50.0f);
@@ -127,12 +130,13 @@ void CEdgeHelper::RenderEdgeHelper()
 	const int ClientId = GameClient()->m_Snap.m_SpecInfo.m_Active ? GameClient()->m_Snap.m_SpecInfo.m_SpectatorId : GameClient()->m_Snap.m_LocalClientId;
 	m_Pos_x = GetPositionEdgeHelper(ClientId, g_Config.m_ClDummy);
 
-	if(g_Config.m_PcEdgeInfoCords && g_Config.m_PcEdgeInfoJump)
-		Base.HSplitMid(&EdgeInfo, &JumpInfo);
-	if(g_Config.m_PcEdgeInfoCords)
-		RenderEdgeHelperEdgeInfo(g_Config.m_PcEdgeInfoJump ? &EdgeInfo : &Base);
-	if(g_Config.m_PcEdgeInfoJump)
-		RenderEdgeHelperJumpInfo(g_Config.m_PcEdgeInfoCords ? &JumpInfo : &Base);
+	// Feature disabled - config variables not defined
+	// if(g_Config.m_PcEdgeInfoCords && g_Config.m_PcEdgeInfoJump)
+	// 	Base.HSplitMid(&EdgeInfo, &JumpInfo);
+	// if(g_Config.m_PcEdgeInfoCords)
+	// 	RenderEdgeHelperEdgeInfo(g_Config.m_PcEdgeInfoJump ? &EdgeInfo : &Base);
+	// if(g_Config.m_PcEdgeInfoJump)
+	// 	RenderEdgeHelperJumpInfo(g_Config.m_PcEdgeInfoCords ? &JumpInfo : &Base);
 }
 
 float CEdgeHelper::GetPositionEdgeHelper(int ClientId, int Conn)
@@ -171,8 +175,8 @@ void CEdgeHelper::RenderEdgeHelperEdgeInfo(CUIRect *pBase)
 	RightZone.VSplitLeft(ActionSpacing + 2, nullptr, &RightZone);
 	LeftZone.Margin(SEdgeHelperProperties::ms_ItemSpacing, &LeftZone);
 	RightZone.Margin(SEdgeHelperProperties::ms_ItemSpacing, &RightZone);
-	LeftZone.Draw(m_Pos_x >= 44 ? color_cast<ColorRGBA>(ColorHSLA(g_Config.m_PcEdgeInfoColorFreeze)) : m_Pos_x >= 28 ? color_cast<ColorRGBA>(ColorHSLA(g_Config.m_PcEdgeInfoColorSafe)) : color_cast<ColorRGBA>(ColorHSLA(g_Config.m_PcEdgeInfoColorKill)), IGraphics::CORNER_ALL, SEdgeHelperProperties::ms_Rounding);
-	RightZone.Draw(m_Pos_x <= 53 ? color_cast<ColorRGBA>(ColorHSLA(g_Config.m_PcEdgeInfoColorFreeze)) : m_Pos_x <= 69 ? color_cast<ColorRGBA>(ColorHSLA(g_Config.m_PcEdgeInfoColorSafe)) : color_cast<ColorRGBA>(ColorHSLA(g_Config.m_PcEdgeInfoColorKill)), IGraphics::CORNER_ALL, SEdgeHelperProperties::ms_Rounding);
+	LeftZone.Draw(m_Pos_x >= 44 ? color_cast<ColorRGBA>(ColorHSLA(g_Config.m_PcEdgeInfoColorFreeze)) : m_Pos_x >= 28 ? color_cast<ColorRGBA>(ColorHSLA(g_Config.m_PcEdgeInfoColorSafe)) : color_cast<ColorRGBA>(ColorHSLA(g_Config.m_PcEdgeInfoColorDanger)), IGraphics::CORNER_ALL, SEdgeHelperProperties::ms_Rounding);
+	RightZone.Draw(m_Pos_x <= 53 ? color_cast<ColorRGBA>(ColorHSLA(g_Config.m_PcEdgeInfoColorFreeze)) : m_Pos_x <= 69 ? color_cast<ColorRGBA>(ColorHSLA(g_Config.m_PcEdgeInfoColorSafe)) : color_cast<ColorRGBA>(ColorHSLA(g_Config.m_PcEdgeInfoColorDanger)), IGraphics::CORNER_ALL, SEdgeHelperProperties::ms_Rounding);
 	CenterZone.VSplitLeft(SEdgeHelperProperties::ms_WallWidth + ActionSpacing, &LeftZone, &CenterZone);
 	CenterZone.VSplitRight(SEdgeHelperProperties::ms_WallWidth + ActionSpacing, &CenterZone, &RightZone);
 	LeftZone.VSplitRight(ActionSpacing - 3, &LeftZone, nullptr);
@@ -244,6 +248,7 @@ void CEdgeHelper::RenderEdgeHelperJumpInfo(CUIRect *pBase)
 	LeftZone.VSplitLeft(3, nullptr, &LeftZone);
 	RightZone.VSplitLeft(ActionSpacing - 3, nullptr, &RightZone);
 	RightZone.VSplitRight(3, &RightZone, nullptr);
+	std::vector<int> values = {13, 16, 25, 28, 31, 41, 44, 53, 56, 62, 63, 66, 69, 72, 81, 84};
 	std::sort(values.begin(), values.end());
 
 	int lower = std::numeric_limits<int>::min();
@@ -290,7 +295,7 @@ bool CEdgeHelper::IsActive() const
 void CEdgeHelper::DoIconButton(CUIRect *pRect, const char *pIcon, float TextSize, ColorRGBA IconColor) const
 {
 	TextRender()->SetFontPreset(EFontPreset::ICON_FONT);
-	TextRender()->SetRenderFlags(ETextRenderFlags::TEXT_RENDER_FLAG_ONLY_ADVANCE_WIDTH | ETextRenderFlags::TEXT_RENDER_FLAG_NO_X_BEARING | ETextRenderFlags::TEXT_RENDER_FLAG_NO_Y_BEARING | ETextRenderFlags::TEXT_RENDER_FLAG_NO_OVERSIZE);
+	TextRender()->SetRenderFlags(ETextRenderFlags::TEXT_RENDER_FLAG_ONLY_ADVANCE_WIDTH | ETextRenderFlags::TEXT_RENDER_FLAG_NO_X_BEARING | ETextRenderFlags::TEXT_RENDER_FLAG_NO_Y_BEARING | ETextRenderFlags::TEXT_RENDER_FLAG_NO_BASELINE);
 	TextRender()->TextColor(IconColor);
 	Ui()->DoLabel(pRect, pIcon, TextSize, TEXTALIGN_MC);
 	TextRender()->TextColor(TextRender()->DefaultTextColor());
