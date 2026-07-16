@@ -331,3 +331,12 @@ MACRO_CONFIG_INT(PcChatBubbleShowTime, pc_chat_bubble_show_time, 600, 100, 3000,
 MACRO_CONFIG_INT(PcChatBubbleFadeOut, pc_chat_bubble_fade_out, 100, 0, 1000, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Chat bubble fade out time in 1/100 seconds")
 MACRO_CONFIG_INT(PcChatBubbleFadeIn, pc_chat_bubble_fade_in, 50, 0, 500, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Chat bubble fade in time in 1/100 seconds")
 MACRO_CONFIG_INT(PcEnableCensorList, pc_enable_censor_list, 0, 0, 1, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Enable chat censor list filter")
+
+// Edge Helper
+MACRO_CONFIG_INT(PcEdgeInfoJump, pc_edge_info_jump, 0, 0, 1, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Show edge info jump indicator")
+MACRO_CONFIG_INT(PcEdgeInfoCords, pc_edge_info_cords, 0, 0, 1, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Show edge info coordinates")
+MACRO_CONFIG_INT(PcEdgeInfoPosX, pc_edge_info_pos_x, 50, 0, 100, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Edge info X position")
+MACRO_CONFIG_INT(PcEdgeInfoPosY, pc_edge_info_pos_y, 50, 0, 100, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Edge info Y position")
+MACRO_CONFIG_COL(PcEdgeInfoColorFreeze, pc_edge_info_color_freeze, 65408, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Edge info freeze color")
+MACRO_CONFIG_COL(PcEdgeInfoColorSafe, pc_edge_info_color_safe, 16711935, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Edge info safe color")
+MACRO_CONFIG_COL(PcEdgeInfoColorKill, pc_edge_info_color_kill, 16711680, CFGFLAG_CLIENT | CFGFLAG_SAVE, "Edge info kill color")
