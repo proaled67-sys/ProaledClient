@@ -2787,7 +2787,7 @@ if(CLIENT)
     components/proaledclient/3d_particles.cpp
     components/proaledclient/3d_particles.h
     components/proaledclient/admin_panel.cpp
-    components/proaledclient/proaled.h
+    components/proaledclient/admin_panel.h
     components/proaledclient/bestclient.cpp
     components/proaledclient/bestclient.h
     components/proaledclient/clientindicator/browser_cache.cpp
