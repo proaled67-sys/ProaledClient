@@ -30,7 +30,7 @@
 #include "components/background.h"
 #include "components/proaledclient/3d_particles.h"
 #include "components/proaledclient/admin_panel.h"
-#include "components/proaledclient/proaledclient.h"
+#include "components/proaledclient/bestclient.h"
 #include "components/proaledclient/clientindicator/client_indicator.h"
 #include "components/proaledclient/fast_actions.h"
 #include "components/proaledclient/fast_practice.h"
