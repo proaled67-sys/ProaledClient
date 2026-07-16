@@ -98,7 +98,6 @@ void CChatBubbles::AddBubble(int ClientId, int Team, const char *pText)
 	int FontSize = g_Config.m_PcChatBubbleSize;
 	CTextCursor pCursor;
 
-	// Create Text at default zoom
 	float ScreenX0, ScreenY0, ScreenX1, ScreenY1;
 	Graphics()->GetScreen(&ScreenX0, &ScreenY0, &ScreenX1, &ScreenY1);
 	Graphics()->MapScreenToInterface(GameClient()->m_Camera.m_Center.x, GameClient()->m_Camera.m_Center.y);
@@ -120,13 +119,12 @@ void CChatBubbles::AddBubble(int ClientId, int Team, const char *pText)
 	else if(Team == TEAM_WHISPER_SEND)
 	{
 		Color = ColorRGBA(0.7f, 0.7f, 1.0f, 1.0f);
-		ClientId = GameClient()->m_Snap.m_LocalClientId; // Set ClientId to local client for whisper send
+		ClientId = GameClient()->m_Snap.m_LocalClientId;
 	}
-	else // regular message
+	else
 		Color = color_cast<ColorRGBA>(ColorHSLA(g_Config.m_ClMessageColor));
 
 	TextRender()->TextColor(Color);
-
 	TextRender()->ColorParsing(pText, &pCursor, Color, &bubble.m_TextContainerIndex);
 
 	m_ChatBubbles[ClientId].insert(m_ChatBubbles[ClientId].begin(), bubble);
@@ -159,7 +157,6 @@ void CChatBubbles::RenderCurInput(float y)
 	CTextCursor pCursor;
 	STextContainerIndex TextContainerIndex;
 
-	// Create Text at default zoom
 	float ScreenX0, ScreenY0, ScreenX1, ScreenY1;
 	Graphics()->GetScreen(&ScreenX0, &ScreenY0, &ScreenX1, &ScreenY1);
 	Graphics()->MapScreenToInterface(GameClient()->m_Camera.m_Center.x, GameClient()->m_Camera.m_Center.y);
@@ -178,7 +175,6 @@ void CChatBubbles::RenderCurInput(float y)
 
 		Position.x -= BoundingBox.m_W / 2.0f + g_Config.m_PcChatBubbleSize / 15.0f;
 		float inputBubbleHeight = BoundingBox.m_H + FontSize;
-
 		float targetY = y - inputBubbleHeight;
 
 		Graphics()->DrawRect(Position.x - FontSize / 2.0f, targetY - FontSize / 2.0f,
@@ -188,7 +184,6 @@ void CChatBubbles::RenderCurInput(float y)
 		TextRender()->RenderTextContainer(TextContainerIndex, ColorRGBA(1.0f, 1.0f, 1.0f, 0.75f), ColorRGBA(0.0f, 0.0f, 0.0f, 0.25f), Position.x, targetY);
 
 		UpdateBubbleOffsets(LocalId, inputBubbleHeight);
-
 		y -= inputBubbleHeight + MarginBetween;
 	}
 	else
@@ -215,15 +210,12 @@ void CChatBubbles::RenderChatBubbles(int ClientId)
 	if(ClientId == GameClient()->m_Snap.m_LocalClientId)
 		RenderCurInput(BaseY);
 
-	// First pass: collect expired bubbles and clean up text containers
 	bool bRemovedAny = false;
 	for(auto it = m_ChatBubbles[ClientId].begin(); it != m_ChatBubbles[ClientId].end();)
 	{
 		CBubbles &aBubble = *it;
-
 		if(aBubble.m_Time + time_freq() * ShowTime < time_get())
 		{
-			// Clean up text container before removal
 			if(aBubble.m_TextContainerIndex.Valid())
 				TextRender()->DeleteTextContainer(aBubble.m_TextContainerIndex);
 			it = m_ChatBubbles[ClientId].erase(it);
@@ -233,11 +225,9 @@ void CChatBubbles::RenderChatBubbles(int ClientId)
 		++it;
 	}
 
-	// Update offsets only once if we removed any bubbles
 	if(bRemovedAny)
 		UpdateBubbleOffsets(ClientId);
 
-	// Second pass: render remaining bubbles
 	for(CBubbles &aBubble : m_ChatBubbles[ClientId])
 	{
 		float Alpha = 1.0f;
@@ -275,8 +265,6 @@ void CChatBubbles::RenderChatBubbles(int ClientId)
 
 			float x = Position.x - (BoundingBox.m_W / 2.0f + g_Config.m_PcChatBubbleSize / 15.0f);
 			float y = BaseY - aBubble.m_OffsetY - BoundingBox.m_H - FontSize;
-
-			//float PushBubble = ShiftBubbles(ClientId, vec2(x - FontSize / 2.0f, y - FontSize / 2.0f), BoundingBox.m_W + FontSize * 1.20f);
 			float PushBubble = 0;
 
 			Graphics()->DrawRect((x - FontSize / 2.0f) + PushBubble, y - FontSize / 2.0f,
@@ -288,11 +276,8 @@ void CChatBubbles::RenderChatBubbles(int ClientId)
 	}
 }
 
-// @qxdFox ToDo:
-// have to store the bubbles position in CBubbles in order to do this properly
 float CChatBubbles::ShiftBubbles(int ClientId, vec2 Pos, float w)
 {
-	//if(!g_Config.m_ClChatBubblePushOut)
 	return 0.0f;
 
 	for(int i = 0; i < MAX_CLIENTS; ++i)
@@ -329,8 +314,6 @@ float CChatBubbles::ShiftBubbles(int ClientId, vec2 Pos, float w)
 
 void CChatBubbles::ExpireBubbles()
 {
-	// This function is currently not implemented
-	// If needed, it should iterate through all clients and remove expired bubbles
 }
 
 float CChatBubbles::GetAlpha(int64_t Time)
@@ -341,7 +324,6 @@ float CChatBubbles::GetAlpha(int64_t Time)
 
 	int64_t Now = time_get();
 	float LineAge = (Now - Time) / (float)time_freq();
-	// Fade in
 	if(LineAge < FadeInTime)
 		return std::clamp(LineAge / FadeInTime, 0.0f, 1.0f);
 
